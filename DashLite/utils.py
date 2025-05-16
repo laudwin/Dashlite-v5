@@ -158,19 +158,19 @@ def render_telkom_footer():
             <a href="/?page=main" class="footer-link">
                 <i class="fas fa-comments"></i>Home
             </a>
-            <a href="/?page=4_Thematic_Analysis" class="footer-link">
+            <a href="/?page=1_Core customer grievance insights" class="footer-link">
                 <i class="fas fa-qrcode"></i> Core Customer Insights
             </a>
-            <a href="/?page=coverage" class="footer-link">
+            <a href="/?page=2_Customer Experience analysis" class="footer-link">
                 <i class="fas fa-broadcast-tower"></i> Customer Experience
             </a>
-            <a href="/?page=stores" class="footer-link">
+            <a href="/?page=3_Customer Feedback Mining Report" class="footer-link">
                 <i class="fas fa-store"></i> Customer Feedback
             </a>
-           <a href="/?page=5_Qualitative_Report" class="footer-link">
+           <a href="/?page=4_Digital Consumer Discourse" class="footer-link">
             <i class="fas fa-newspaper"></i> Digital Consumer
             </a>
-            <a href="/?page=6_Time_Series" class="footer-link">
+            <a href="/?page=6_Chat_With_AI" class="footer-link">
                 <i class="fas fa-clock"></i> Chat With AI
             </a>
         </div>
