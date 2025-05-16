@@ -8,3 +8,4 @@ streamlit_plotly_events
 fastparquet
 sqlalchemy
 azure-ai-inference
+openai
