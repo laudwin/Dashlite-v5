@@ -171,7 +171,7 @@ def render_telkom_footer():
             <i class="fas fa-newspaper"></i> Digital Consumer
             </a>
             <a href="/?page=6_Time_Series" class="footer-link">
-                <i class="fas fa-clock"></i> Time Series
+                <i class="fas fa-clock"></i> Chat With AI
             </a>
         </div>
     </div>
