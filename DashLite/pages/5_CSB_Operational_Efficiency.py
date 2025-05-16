@@ -11,7 +11,7 @@ inject_telkom_styling()
 #from utils import THOMAS_URL
 
 
-inject_telkom_styling()
+#inject_telkom_styling()
 
 # -------------------- Navbar --------------------
 st.markdown("""
