@@ -23,7 +23,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-#st.header('Thematic Analysis of Mentions')
+#st.header('Core customer grievance insights')
 if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
 
