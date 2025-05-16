@@ -17,7 +17,7 @@ inject_telkom_styling()
 st.markdown("""
 <nav class="navbar navbar-expand-lg" style="background-color: #0099D8;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" "color: white important;" "underline: none;" "text-decoration: none !important;">Thematic Analysis of Mentions</a>
+    <a class="navbar-brand" href="#" "color: white important;" "underline: none;" "text-decoration: none !important;">Core customer grievance insights</a>
   </div>
 </nav>
 """, unsafe_allow_html=True)
