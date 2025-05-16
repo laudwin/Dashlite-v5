@@ -20,15 +20,19 @@ client = AzureOpenAI(
 )
 DEPLOYMENT_NAME = "gpt-4o"
 
-# --- Database Config using pymssql (ODBC-free) ---
+from sqlalchemy import create_engine
+from urllib.parse import quote_plus
+
 database = 'VerbatimData'
 table = 'Post'
 uid = 'someadmin'
 pwd = 'Gx9#vTq2Lm'
 server = 'sqlserverlogical.database.windows.net'
 
+# Use pymssql instead of pyodbc
 connect_str = f"mssql+pymssql://{uid}:{quote_plus(pwd)}@{server}:1433/{database}"
 AzureDB = create_engine(connect_str)
+
 
 # --- Load Data in Chunks from SQL via SQLAlchemy ---
 def load_post_data_chunked(offset=0, chunk_size=1000):
