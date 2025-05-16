@@ -156,19 +156,19 @@ def render_telkom_footer():
     <div class="floating-footer">
         <div class="footer-container">
             <a href="/?page=main" class="footer-link">
-                <i class="fas fa-comments"></i>Main
+                <i class="fas fa-comments"></i>Home
             </a>
             <a href="/?page=4_Thematic_Analysis" class="footer-link">
-                <i class="fas fa-qrcode"></i> Thematic Analysis
+                <i class="fas fa-qrcode"></i> Core Customer Insights
             </a>
             <a href="/?page=coverage" class="footer-link">
-                <i class="fas fa-broadcast-tower"></i> Issue Analysis
+                <i class="fas fa-broadcast-tower"></i> Customer Experience
             </a>
             <a href="/?page=stores" class="footer-link">
-                <i class="fas fa-store"></i> Data Sci Report
+                <i class="fas fa-store"></i> Customer Feedback
             </a>
            <a href="/?page=5_Qualitative_Report" class="footer-link">
-            <i class="fas fa-newspaper"></i> Qualitative Report
+            <i class="fas fa-newspaper"></i> Digital Consumer
             </a>
             <a href="/?page=6_Time_Series" class="footer-link">
                 <i class="fas fa-clock"></i> Time Series
