@@ -27,6 +27,7 @@ SQL_API_URL = "https://flowise-210n.onrender.com/api/v1/prediction/dbd00d0f-dc26
 PY_CODE_API_URL = "https://flowise-210n.onrender.com/api/v1/prediction/4b48ba12-ee76-49bf-8e6d-892c20946441"
 SIBUYI_URL = "https://flowise-210n.onrender.com/api/v1/prediction/8a883cd9-eb8f-4fb0-9bb3-c10d2a23e549"
 JIDE_URL="https://flowise-210n.onrender.com/api/v1/prediction/1a47203a-a94d-4c9d-bccb-d6e9e42f0a0e"
+THOMAS_URL = "https://flowise-210n.onrender.com/api/v1/prediction/4a763dcc-6bba-4dc3-a683-422d179c7010"
 
 TABLE = 'Post'
 # -------------------- Styling Function ------------------ #
