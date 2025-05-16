@@ -27,7 +27,7 @@ if not st.session_state["authenticated"]:
     st.stop()
     
 st.markdown("""
-#### Chat and Converse with our AI assistant
+###### Chat and Converse with our AI assistant
 Chat or click “Start a call” to chat with an AI assistant that has read the full report by Dr Sibuyi. You can ask it questions about the findings, insights or any theory mentioned. It won't give personal opinions or new advice but only what's in the report.
 
 It’s like having a helpful guide who knows the document inside out!
