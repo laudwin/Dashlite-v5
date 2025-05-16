@@ -9,3 +9,4 @@ fastparquet
 sqlalchemy
 azure-ai-inference
 openai
+wordcloud
