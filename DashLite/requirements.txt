@@ -10,4 +10,5 @@ sqlalchemy
 azure-ai-inference
 openai
 wordcloud
-pyodbc
+#pyodbc
+pymssql
