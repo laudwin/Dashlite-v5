@@ -207,7 +207,7 @@ st.markdown(
     }
     </style>
     <div class="footer">
-        <p>Powered by TISL WIC | AskTelkom Bot</p>
+        <p>Powered by TISL WIC | Ask TISL AI</p>
     </div>
     """,
     unsafe_allow_html=True,
