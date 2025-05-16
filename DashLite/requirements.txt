@@ -1,0 +1,10 @@
+numpy
+pandas
+plotly
+python_dateutil
+Requests
+streamlit
+streamlit_plotly_events
+fastparquet
+sqlalchemy
+azure-ai-inference
