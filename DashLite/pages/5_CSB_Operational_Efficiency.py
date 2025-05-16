@@ -10,6 +10,8 @@ from utils import (
    # render_title_bar,
    
 )
+from utils import THOMAS_URL
+
 
 inject_telkom_styling()
 
