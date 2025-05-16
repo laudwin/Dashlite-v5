@@ -13,7 +13,7 @@ inject_telkom_styling()
 st.markdown("""
 <nav class="navbar navbar-expand-lg" style="background-color: #0099D8;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" "color: white important;" "underline: none;" "text-decoration: none !important;">Data Science Report (Converse)</a>
+    <a class="navbar-brand" href="#" "color: white important;" "underline: none;" "text-decoration: none !important;">Customer Feedback Mining Report</a>
   </div>
 </nav>
 """, unsafe_allow_html=True)
