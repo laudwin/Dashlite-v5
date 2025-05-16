@@ -42,7 +42,7 @@ total_records = 378490
 min_date = datetime.date(2022, 3, 1)
 max_date = datetime.date(2025, 2, 28)
 
-df = pd.read_parquet("thematic_df.parquet")
+df = pd.read_parquet("DashLite/thematic_df.parquet")
 start_date = min_date
 end_date = max_date
 
