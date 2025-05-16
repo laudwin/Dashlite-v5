@@ -34,7 +34,7 @@ TABLE = 'Post'
 
 
 def render_telkom_sidebar_logo():
-    st.sidebar.image("telkom-logo.png", use_container_width=True)
+    st.sidebar.image("DashLite/telkom-logo.png", use_container_width=True)
 
 
 def inject_telkom_styling():
