@@ -1,16 +1,14 @@
 import streamlit as st
 import streamlit.components.v1 as components
+
 from utils import (
     THOMAS_URL,
-    query_flowise,
-    login,
-    inject_telkom_styling,
-    render_telkom_sidebar_logo,
-    render_telkom_footer,
-   # render_title_bar,
-   
+    query_flowise
 )
-from utils import THOMAS_URL
+from utils import TABLE, theme_colors, login
+from utils import inject_telkom_styling, render_telkom_footer,render_telkom_sidebar_logo
+inject_telkom_styling()
+#from utils import THOMAS_URL
 
 
 inject_telkom_styling()
