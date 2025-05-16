@@ -47,7 +47,7 @@ end_date = max_date
 normalized_start_date = min_date
 normalized_end_date = end_date
 
-df_filtered = pd.read_parquet("issue_df.parquet")
+df_filtered = pd.read_parquet("DashLite/issue_df.parquet")
 
 
 model_names = df_filtered['PromptName'].dropna().unique()
