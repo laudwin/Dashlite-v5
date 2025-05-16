@@ -5,11 +5,11 @@ from sqlalchemy import create_engine
 from urllib.parse import quote_plus
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-from utils import inject_telkom_styling, render_telkom_footer,render_telkom_sidebar_logo
+from utils import inject_telkom_styling, render_telkom_footer, render_telkom_sidebar_logo
+
 inject_telkom_styling()
 
 # --- Streamlit Page Config ---
-#st.set_page_config(page_title="💬 T-Know Bot", layout="wide")
 st.title("💬 Ask TISL AI")
 
 # --- Azure OpenAI Config ---
@@ -20,19 +20,14 @@ client = AzureOpenAI(
 )
 DEPLOYMENT_NAME = "gpt-4o"
 
-# --- Database Config via SQLAlchemy ---
+# --- Database Config using pymssql (ODBC-free) ---
 database = 'VerbatimData'
 table = 'Post'
 uid = 'someadmin'
 pwd = 'Gx9#vTq2Lm'
+server = 'sqlserverlogical.database.windows.net'
 
-odbc_str = (
-    "Driver={ODBC Driver 18 for SQL Server};"
-    "Server=tcp:sqlserverlogical.database.windows.net,1433;"
-    f"Database={database};Uid={uid};Pwd={pwd};"
-    "Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
-)
-connect_str = 'mssql+pyodbc:///?odbc_connect=' + quote_plus(odbc_str)
+connect_str = f"mssql+pymssql://{uid}:{quote_plus(pwd)}@{server}:1433/{database}"
 AzureDB = create_engine(connect_str)
 
 # --- Load Data in Chunks from SQL via SQLAlchemy ---
@@ -46,11 +41,9 @@ def load_post_data_chunked(offset=0, chunk_size=1000):
             OFFSET {offset} ROWS FETCH NEXT {chunk_size} ROWS ONLY;
         """
         df = pd.read_sql(query, AzureDB)
-
         df["Published"] = pd.to_datetime(df["Published"], errors='coerce')
         df["Engagement"] = pd.to_numeric(df["Engagement"], errors='coerce')
         df["Sentiment"] = pd.to_numeric(df["Sentiment"], errors='coerce')
-
         return df
     except Exception as e:
         st.error(f"❌ Failed to load data: {str(e)}")
@@ -120,17 +113,14 @@ if user_query:
     lower_query = user_query.lower().strip()
     response = None
 
-    # --- Greeting ---
     if any(lower_query.startswith(greet) for greet in ["hi", "hello", "hey"]):
         response = "👋 Hi! I'm your TISL Customer Feedback Assistant. How can I help today?"
 
-    # --- Summary ---
     elif "summary" in lower_query or "summarize" in lower_query:
         samples = df["PostText"].dropna().sample(min(15, len(df))).tolist()
         prompt = "Summarize the themes in these Telkom complaints:\n" + "\n".join(f"- {t}" for t in samples)
         response = ask_azure_openai(prompt)
 
-    # --- Keyword Search ---
     elif "search" in lower_query or "find" in lower_query:
         keyword = lower_query.split("search")[-1].strip() or lower_query.split("find")[-1].strip()
         matches = search_posts_by_keyword(keyword)
@@ -140,17 +130,14 @@ if user_query:
         st.write(response)
         st.dataframe(matches[["Published", "PostText", "Category", "Gender", "Engagement"]], use_container_width=True)
 
-    # --- Top Category ---
     elif "top category" in lower_query:
         top_cat = df["Category"].value_counts().idxmax()
         response = f"🏷️ Most common complaint category is **{top_cat}**."
 
-    # --- Average Engagement ---
     elif "average engagement" in lower_query:
         avg = df["Engagement"].mean()
         response = f"📊 The average post engagement is **{avg:.2f}**."
 
-    # --- Charts, Tables, Word Cloud ---
     elif any(word in lower_query for word in ["chart", "graph", "visualize", "table", "word cloud"]):
         if "engagement" in lower_query:
             chart_data = df.groupby("Category")["Engagement"].mean().sort_values(ascending=False).head(10)
@@ -181,14 +168,12 @@ if user_query:
         else:
             response = "I can generate charts, tables, or word clouds based on engagement, sentiment, categories, etc. Try asking something more specific!"
 
-    # --- GPT Default ---
     else:
         sample_context = df["PostText"].dropna().sample(min(15, len(df))).tolist()
         context = "\n".join(f"- {line}" for line in sample_context)
         prompt = f"User asked: '{user_query}'. Use this data to answer:\n{context}"
         response = ask_azure_openai(prompt)
 
-    # --- Display Response ---
     if response:
         st.session_state.chat.append({"role": "assistant", "content": response})
         with st.chat_message("assistant"):
