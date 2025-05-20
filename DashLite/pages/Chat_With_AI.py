@@ -30,8 +30,14 @@ pwd = 'Gx9#vTq2Lm'
 server = 'sqlserverlogical.database.windows.net'
 
 # Use pymssql instead of pyodbc
-connect_str = f"mssql+pymssql://{uid}:{quote_plus(pwd)}@{server}:1433/{database}"
+driver = "ODBC Driver 18 for SQL Server"
+connect_str = (
+    f"mssql+pyodbc://{uid}:{quote_plus(pwd)}@{server}:1433/{database}"
+    f"?driver={quote_plus(driver)}&Encrypt=yes&TrustServerCertificate=no"
+)
 AzureDB = create_engine(connect_str)
+
+#AzureDB = create_engine(connect_str)
 
 
 # --- Load Data in Chunks from SQL via SQLAlchemy ---
