@@ -11,5 +11,6 @@ azure-ai-inference
 openai
 wordcloud
 #pyodbc
-pymssql
+#pymssql
 #pytds
+turbodbc
