@@ -24,7 +24,7 @@ if not st.session_state["authenticated"]:
 st.markdown("""
 <nav class="navbar navbar-expand-lg" style="background-color: #0099D8;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" "color: white important;" "underline: none;" "text-decoration: none !important;">Customer Issue Overview</a>
+    <a class="navbar-brand" href="#" "color: white important;" "underline: none;" "text-decoration: none !important;">TISL Social Media Mentions Visualisation</a>
   </div>
 </nav>
 """, unsafe_allow_html=True)
@@ -49,8 +49,8 @@ end_date = max_date
 normalized_start_date = min_date
 normalized_end_date = end_date
 
-df = pd.read_parquet("DashLite/time_series_df.parquet")
-df_unfiltered = pd.read_parquet("DashLite/time_series_df_unfiltered.parquet")
+df = pd.read_parquet("time_series_df.parquet")
+df_unfiltered = pd.read_parquet("time_series_df_unfiltered.parquet")
 # Create two columns side by side
 col1, col2, col3 = st.columns([1, 1, 3])
 
@@ -171,8 +171,7 @@ df_time = df[
         (df['PublishedDate'] <= pd.to_datetime(normalized_end_date))
     ]
 with st.expander("📊 How to Interpret a Box Plot", expanded=False):
-
-st.markdown("""
+    st.markdown("""
             ##### 📦 How to Interpret a Box Plot
             A **box plot** (also known as a **box-and-whisker plot**) is a compact way to visualize the **distribution, spread, and potential outliers** of a dataset. Here's what each part represents:
 
@@ -264,8 +263,8 @@ if view_option == "Annual":
         hovertemplate='Month: %{x}<br>Mean: %{y:.2f}<extra></extra>'
     ))
 
-
-    st.markdown("""
+    with st.expander("📊  Why Use Box Plots?", expanded=False):
+        st.markdown("""
 ##### 📊 Why Use Box Plots?
 
 
@@ -293,12 +292,12 @@ if view_option == "Annual":
         plot_bgcolor='white'
     )
 
-    
 
-    st.markdown("""
+    with st.expander("📊 Interpreting the Trend Line", expanded=False):
+        st.markdown(""" #####Interpreting the Trend Line
                 
 
-##### 📈 Interpreting the Trend Line
+
 
 The chart above displays a **trend line** showing the **average number of mentions over a year/month/week** across the selected period.
 
@@ -455,17 +454,17 @@ else:
     st.stop()
 
 
-st.markdown("""
-#### 📊 Why This is Useful
+with st.expander("📊 Why This is Useful", expanded=False):
+    st.markdown("""
+    - By focusing on averages, the trend line reduces the impact of short-term spikes or drops, offering a **clearer view of central tendencies**.
+    - It can help identify:
+      - Days with consistently higher or lower activity.
+      - Weekly cycles or posting habits.
+      - Outlier behavior when compared to the mean.
 
-- By focusing on averages, the trend line reduces the impact of short-term spikes or drops, offering a **clearer view of central tendencies**.
-- It can help identify:
-  - Days with consistently higher or lower activity.
-  - Weekly cycles or posting habits.
-  - Outlier behavior when compared to the mean.
+    <div style='height: 3px; background-color: #4F8BF9; margin-top: 10px; margin-bottom: 10px;'></div>
+    """, unsafe_allow_html=True)
 
-<div style='height: 3px; background-color: #4F8BF9; margin-top: 10px; margin-bottom: 10px;'></div>
-""", unsafe_allow_html=True)
 
 
 
