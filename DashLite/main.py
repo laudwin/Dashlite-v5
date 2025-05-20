@@ -294,8 +294,8 @@ if view_option == "Annual":
 
 
     with st.expander("📊 Interpreting the Trend Line", expanded=False):
-        st.markdown(""" #####Interpreting the Trend Line
-                
+        st.markdown(""" 
+          ##### Interpreting the Trend Line      
 
 
 
