@@ -170,6 +170,7 @@ df_time = df[
         (df['PublishedDate'] >= pd.to_datetime(normalized_start_date)) & 
         (df['PublishedDate'] <= pd.to_datetime(normalized_end_date))
     ]
+with st.expander("📊 How to Interpret a Box Plot", expanded=False):
 
 st.markdown("""
             ##### 📦 How to Interpret a Box Plot
