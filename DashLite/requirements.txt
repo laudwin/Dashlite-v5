@@ -12,4 +12,4 @@ openai
 wordcloud
 #pyodbc
 pymssql
-pytds
+#pytds
