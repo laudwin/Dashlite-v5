@@ -23,15 +23,15 @@ DEPLOYMENT_NAME = "gpt-4o"
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
 
-database = 'VerbatimData'
-table = 'Post'
-uid = 'someadmin'
-pwd = 'Gx9#vTq2Lm'
-server = 'sqlserverlogical.database.windows.net'
+uid = "someadmin"
+pwd = "Gx9#vTq2Lm"
+server = "sqlserverlogical.database.windows.net"
+database = "VerbatimData"
 
-# Use pymssql instead of pyodbc
+# Use pytds driver through SQLAlchemy
 connect_str = f"mssql+pytds://{uid}:{pwd}@{server}/{database}?encrypt=yes"
-AzureDB = create_engine(connect_str)
+engine = create_engine(connect_str)
+
 
 
 # --- Load Data in Chunks from SQL via SQLAlchemy ---
