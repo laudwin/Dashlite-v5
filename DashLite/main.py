@@ -29,7 +29,7 @@ st.markdown("""
 </nav>
 """, unsafe_allow_html=True)
 
-#st.header('TISL Social Media Mentions Visualisation')
+#st.header('Core Customer Insights')
 
 # ✅ Define the month_diff function first
 def month_diff(start_date, end_date):
@@ -49,8 +49,8 @@ end_date = max_date
 normalized_start_date = min_date
 normalized_end_date = end_date
 
-df = pd.read_parquet("time_series_df.parquet")
-df_unfiltered = pd.read_parquet("time_series_df_unfiltered.parquet")
+df = pd.read_parquet("DashLite/time_series_df.parquet")
+df_unfiltered = pd.read_parquet("DashLite/time_series_df_unfiltered.parquet")
 # Create two columns side by side
 col1, col2, col3 = st.columns([1, 1, 3])
 
