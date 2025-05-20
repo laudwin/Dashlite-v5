@@ -30,7 +30,7 @@ pwd = 'Gx9#vTq2Lm'
 server = 'sqlserverlogical.database.windows.net'
 
 # Use pymssql instead of pyodbc
-connect_str = f"mssql+pymssql://{uid}:{quote_plus(pwd)}@{server}:1433/{database}"
+connect_str = f"mssql+pytds://{uid}:{pwd}@{server}/{database}?encrypt=yes"
 AzureDB = create_engine(connect_str)
 
 
