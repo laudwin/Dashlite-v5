@@ -6,7 +6,7 @@ import plotly.express as px
 
 from sqlalchemy import create_engine
 import plotly.graph_objects as go
-from utils import TABLE, login
+from utils import TABLE
 from utils import inject_telkom_styling, render_telkom_footer,render_telkom_sidebar_logo
 inject_telkom_styling()
 
@@ -17,7 +17,7 @@ if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
 
 if not st.session_state["authenticated"]:
-    login()
+    #login()
     st.stop()
 
 # -------------------- Navbar --------------------
