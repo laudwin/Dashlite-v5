@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from sqlalchemy import create_engine
 from urllib.parse import quote_plus
 import datetime
-from utils import TABLE, theme_colors, login
+from utils import TABLE, theme_colors
 from streamlit_plotly_events import plotly_events
 import plotly.express as px
 from dateutil.relativedelta import relativedelta
@@ -28,7 +28,7 @@ if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
 
 if not st.session_state["authenticated"]:
-    login()
+    #login()
     st.stop()
 
 
